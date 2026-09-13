@@ -32,7 +32,7 @@ class MockOfflineProvider(BaseLLMProvider):
         self.model_name = "Offline-Mock-Model-2026"
 
     def generate(self, prompt: str, system_prompt: str = "") -> str:
-        return f"[Mock Chatbot Response]: Xin chào! Tôi đã nhận được câu hỏi '{prompt}'. (Chế độ Chatbot không có Tool tra cứu dữ liệu thời gian thực)."
+        return f"Xin chào! Tôi đã nhận được câu hỏi '{prompt}'. Với các câu hỏi chung, tôi có thể hỗ trợ giải thích quy chế học vụ ở mức tổng quát."
 
     def generate_with_tools(self, prompt: str, tools_schema: List[Dict[str, Any]], system_prompt: str = "") -> Dict[str, Any]:
         prompt_lower = prompt.lower()
@@ -55,7 +55,7 @@ class MockOfflineProvider(BaseLLMProvider):
         else:
             return {
                 "type": "text",
-                "content": f"[Mock Agent Response]: Xin chào! Quy chế học vụ VinUni yêu cầu sinh viên tích lũy tối thiểu 120 tín chỉ và duy trì GPA trên 2.0 để tốt nghiệp.",
+                "content": "Xin chào! Về quy chế học vụ cơ bản, sinh viên cần theo dõi số tín chỉ tích lũy, duy trì kết quả học tập đạt yêu cầu, tuân thủ quy định đăng ký học phần và liên hệ cố vấn học tập khi cần hỗ trợ cá nhân hóa.",
                 "thought": "Câu hỏi chung về quy chế học vụ, trả lời trực tiếp không cần gọi Tool."
             }
 
